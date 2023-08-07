@@ -1,0 +1,6 @@
+ipykernel
+mlflow
+cloudpickle==2.2.0
+psutil==5.8.0
+scikit-learn
+azure-ai-ml
