@@ -1,16 +1,16 @@
-#! /usr/bin/sh
+#! /bin/bash
 
 # Create random string
-guid=$(cat /proc/sys/kernel/random/uuid)
+guid=$(/usr/bin/uuidgen)
 suffix=${guid//[-]/}
-suffix=${suffix:0:18}
+suffix=${suffix:0:4}
 
 # Set the necessary variables
-RESOURCE_GROUP="rg-dp100-l${suffix}"
+RESOURCE_GROUP="rg-dp100-labs${suffix}"
 RESOURCE_PROVIDER="Microsoft.MachineLearning"
-REGIONS=("eastus" "westus" "centralus" "northeurope" "westeurope")
+REGIONS=("australiaeast" "australiasoutheast")
 RANDOM_REGION=${REGIONS[$RANDOM % ${#REGIONS[@]}]}
-WORKSPACE_NAME="mlw-dp100-l${suffix}"
+WORKSPACE_NAME="mlw-dp100-labs${suffix}"
 COMPUTE_INSTANCE="ci${suffix}"
 COMPUTE_CLUSTER="aml-cluster"
 
